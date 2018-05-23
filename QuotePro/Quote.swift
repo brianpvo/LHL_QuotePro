@@ -7,28 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Quote: NSObject {
+class Quote: Object {
     
-    var quoteText: String
-    var quoteAuthor: String
-    
-    init(quoteText: String, quoteAuthor: String) {
-        self.quoteText = quoteText
-        self.quoteAuthor = quoteAuthor
-    }
-    
-//    static func apiQuote(completion: @escaping (Quote?, Bool)->(Void)) {
-//        ForismaticAPIRequest.get { (json, error) -> (Void) in
-//            if let json = json {
-//                let quote = Quote()
-//                quote.quoteText = json["quoteText"] as? String
-//                quote.quoteAuthor = json["quoteAuthor"] as? String
-//                completion(quote, true)
-//            } else {
-//                completion(nil, false)
-//            }
-//        }
-//    }
+    @objc dynamic var quoteText: String?
+    @objc dynamic var quoteAuthor: String?
     
 }

@@ -7,27 +7,31 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var quotePhotos: Results<QuotePhoto>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        Quote.apiQuote { (quote, success) -> (Void) in
-//            if(success) {
-//                self.title = quote?.quoteAuthor
-//            }
-//            else {
-//                print("Quote retrival fail")
-//            }
-//        }
+        do {
+            let realm = try Realm()
+            self.quotePhotos = realm.objects(QuotePhoto.self)
+        } catch {
+            print("cant query realm objects")
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        guard let quotePhotos = quotePhotos else {
+            return 0
+        }
+        return quotePhotos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         return UITableViewCell()
     }
     

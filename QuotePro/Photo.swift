@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Photo: NSObject {
+class Photo: Object {
+    
+    @objc var imageData: Data?
 
 }
