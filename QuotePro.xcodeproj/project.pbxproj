@@ -17,7 +17,26 @@
 		7A986E7220B5060300103CE4 /* ForismaticAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A986E7120B5060300103CE4 /* ForismaticAPIRequest.swift */; };
 		7A986E7420B5062600103CE4 /* LorempixelRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A986E7320B5062600103CE4 /* LorempixelRequest.swift */; };
 		7A986E7620B5074800103CE4 /* QuoteBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A986E7520B5074800103CE4 /* QuoteBuilderViewController.swift */; };
+		7A986E8E20B5F76A00103CE4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A986E8C20B5F76800103CE4 /* RealmSwift.framework */; };
+		7A986E8F20B5F76A00103CE4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A986E8C20B5F76800103CE4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A986E9020B5F76A00103CE4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A986E8D20B5F76A00103CE4 /* Realm.framework */; };
+		7A986E9120B5F76A00103CE4 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A986E8D20B5F76A00103CE4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A986E8B20B5F56900103CE4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7A986E9120B5F76A00103CE4 /* Realm.framework in Embed Frameworks */,
+				7A986E8F20B5F76A00103CE4 /* RealmSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7A986E5820B4ED8B00103CE4 /* QuotePro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotePro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +51,8 @@
 		7A986E7120B5060300103CE4 /* ForismaticAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForismaticAPIRequest.swift; sourceTree = "<group>"; };
 		7A986E7320B5062600103CE4 /* LorempixelRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LorempixelRequest.swift; sourceTree = "<group>"; };
 		7A986E7520B5074800103CE4 /* QuoteBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteBuilderViewController.swift; sourceTree = "<group>"; };
+		7A986E8C20B5F76800103CE4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		7A986E8D20B5F76A00103CE4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A986E9020B5F76A00103CE4 /* Realm.framework in Frameworks */,
+				7A986E8E20B5F76A00103CE4 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +73,8 @@
 			children = (
 				7A986E5A20B4ED8B00103CE4 /* QuotePro */,
 				7A986E5920B4ED8B00103CE4 /* Products */,
+				7A986E8D20B5F76A00103CE4 /* Realm.framework */,
+				7A986E8C20B5F76800103CE4 /* RealmSwift.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,8 +112,10 @@
 			buildConfigurationList = 7A986E6A20B4ED8C00103CE4 /* Build configuration list for PBXNativeTarget "QuotePro" */;
 			buildPhases = (
 				7A986E5420B4ED8B00103CE4 /* Sources */,
+				7A986E8B20B5F56900103CE4 /* Embed Frameworks */,
 				7A986E5520B4ED8B00103CE4 /* Frameworks */,
 				7A986E5620B4ED8B00103CE4 /* Resources */,
+				7A986E8420B5F47500103CE4 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A986E8420B5F47500103CE4 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7A986E5420B4ED8B00103CE4 /* Sources */ = {
@@ -239,6 +283,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -292,6 +337,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -301,6 +347,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/QuotePro",
+				);
 				INFOPLIST_FILE = QuotePro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -318,6 +369,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/QuotePro",
+				);
 				INFOPLIST_FILE = QuotePro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

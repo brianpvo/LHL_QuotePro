@@ -13,26 +13,28 @@ class QuoteBuilderViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var quoteLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func generateQuote(_ sender: UIButton) {
+        ForismaticAPIRequest.get { (json, error) -> (Void) in
+            if let json = json {
+                self.quoteLabel.text = json["quoteText"] as? String
+                self.authorLabel.text = json["quoteAuthor"] as? String
+            }
+        }
     }
-    */
-
+    
+    @IBAction func generateImage(_ sender: UIButton) {
+    }
+    
+    @IBAction func saveQuote(_ sender: UIButton) {
+        if let quoteText = quoteLabel.text, let author = authorLabel.text {
+            Quote(quoteText: quoteText, quoteAuthor: author)
+        }
+    }
+    
 }

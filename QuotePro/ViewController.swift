@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +31,30 @@ class ViewController: UIViewController, UITableViewDataSource {
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let quoteBuilder = segue.destination as! QuoteBuilderViewController
         
+        ForismaticAPIRequest.get { (json, error) -> (Void) in
+            if let json = json {
+                quoteBuilder.quoteLabel.text = json["quoteText"] as? String
+                quoteBuilder.authorLabel.text = json["quoteAuthor"] as? String
+                //quoteBuilder.quote = Quote(quoteText: quoteText, quoteAuthor: quoteAuthor)
+            }
+        }
+        
+        LorempixelRequest.get { (image, error) -> (Void) in
+            if let image = image {
+                quoteBuilder.imageView.image = image
+            }
+        }
     }
 
 }
