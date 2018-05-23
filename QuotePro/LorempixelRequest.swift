@@ -10,7 +10,7 @@ import UIKit
 
 class LorempixelRequest: NSObject {
     
-    static func get(completion: @escaping (UIImage?, Error?)->(Void)) {
+    static func get(completion: @escaping (Data?, Error?)->(Void)) {
         let url = URL(string: "https://lorempixel.com/200/300/sports/")!
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
@@ -33,10 +33,10 @@ class LorempixelRequest: NSObject {
                 return
             }
             
-            let image = UIImage(data: data)
+            //let image = UIImage(data: data)
             
             DispatchQueue.main.async {
-                completion(image, error)
+                completion(data, error)
             }
             
         }
