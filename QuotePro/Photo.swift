@@ -11,6 +11,6 @@ import RealmSwift
 
 class Photo: Object {
     
-    @objc var imageData: Data?
+    @objc dynamic var imageData: Data?
 
 }

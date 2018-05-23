@@ -21,6 +21,7 @@
 		7A986E8F20B5F76A00103CE4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A986E8C20B5F76800103CE4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A986E9020B5F76A00103CE4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A986E8D20B5F76A00103CE4 /* Realm.framework */; };
 		7A986E9120B5F76A00103CE4 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A986E8D20B5F76A00103CE4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A986E9320B603C900103CE4 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A986E9220B603C900103CE4 /* QuoteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,7 @@
 		7A986E7520B5074800103CE4 /* QuoteBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteBuilderViewController.swift; sourceTree = "<group>"; };
 		7A986E8C20B5F76800103CE4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		7A986E8D20B5F76A00103CE4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		7A986E9220B603C900103CE4 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				7A986E5B20B4ED8B00103CE4 /* AppDelegate.swift */,
 				7A986E7520B5074800103CE4 /* QuoteBuilderViewController.swift */,
 				7A986E5D20B4ED8B00103CE4 /* ViewController.swift */,
+				7A986E9220B603C900103CE4 /* QuoteCell.swift */,
 				7A986E6D20B505CA00103CE4 /* Quote.swift */,
 				7A986E6F20B505D300103CE4 /* Photo.swift */,
 				7A986E7120B5060300103CE4 /* ForismaticAPIRequest.swift */,
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A986E9320B603C900103CE4 /* QuoteCell.swift in Sources */,
 				7A986E7020B505D400103CE4 /* Photo.swift in Sources */,
 				7A986E5E20B4ED8B00103CE4 /* ViewController.swift in Sources */,
 				7A986E7420B5062600103CE4 /* LorempixelRequest.swift in Sources */,

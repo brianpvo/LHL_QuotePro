@@ -106,7 +106,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="68" id="YNB-Hl-lNe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="68" id="YNB-Hl-lNe" customClass="QuoteCell" customModule="QuotePro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YNB-Hl-lNe" id="E7X-yc-d1E">
@@ -138,6 +138,10 @@
                                                 <constraint firstItem="TK4-6B-4op" firstAttribute="bottom" secondItem="E7X-yc-d1E" secondAttribute="bottomMargin" id="jTl-mx-CxZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="TK4-6B-4op" id="8hi-um-aHd"/>
+                                            <outlet property="quoteLabel" destination="MCj-DR-1L3" id="pta-tg-u3l"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -162,6 +166,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="IU5-hY-Efi" id="HwB-x8-4kW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAW-bB-AbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

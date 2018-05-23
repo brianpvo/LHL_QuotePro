@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 class QuotePhoto: Object {
-    @objc var quote: Quote?
-    @objc var photo: Photo?
+    @objc dynamic var quote: Quote?
+    @objc dynamic var photo: Photo?
 }
 
 class QuoteBuilderViewController: UIViewController {
@@ -29,7 +29,7 @@ class QuoteBuilderViewController: UIViewController {
         ForismaticAPIRequest.get { (json, error) -> (Void) in
             if let json = json {
                 self.quoteLabel.text = json["quoteText"] as? String
-                self.authorLabel.text = json["quoteAuthor"] as? String
+                self.authorLabel.text = "- \(json["quoteAuthor"] as? String ?? "Unknown Author")"
             }
         }
     }

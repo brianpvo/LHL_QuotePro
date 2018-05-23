@@ -11,6 +11,7 @@ import RealmSwift
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
     var quotePhotos: Results<QuotePhoto>?
     
     override func viewDidLoad() {
@@ -18,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         do {
             let realm = try Realm()
             self.quotePhotos = realm.objects(QuotePhoto.self)
+            tableView.reloadData()
         } catch {
             print("cant query realm objects")
         }
@@ -31,8 +33,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "quoteCell") as! QuoteCell
         
-        return UITableViewCell()
+        guard let quotePhotos = quotePhotos  else {
+            return UITableViewCell()
+        }
+
+        let quotePhoto = quotePhotos[indexPath.row]
+        
+        cell.quoteLabel.text = quotePhoto.quote?.quoteText
+        cell.authorLabel.text = "- \(quotePhoto.quote?.quoteAuthor ?? "Unknown Author")"
+        
+        return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -49,8 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         ForismaticAPIRequest.get { (json, error) -> (Void) in
             if let json = json {
                 quoteBuilder.quoteLabel.text = json["quoteText"] as? String
-                quoteBuilder.authorLabel.text = json["quoteAuthor"] as? String
-                //quoteBuilder.quote = Quote(quoteText: quoteText, quoteAuthor: quoteAuthor)
+                quoteBuilder.authorLabel.text = "- \(json["quoteAuthor"] as? String ?? "Unknown Author")"
             }
         }
         
