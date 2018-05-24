@@ -53,7 +53,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let activityVC = UIActivityViewController(activityItems: <#T##[Any]#>, applicationActivities: <#T##[UIActivity]?#>)
+        if let quotePhotos = quotePhotos {
+            let photo = UIImage(data: (quotePhotos[indexPath.row].photo?.imageData)!)
+            
+            let activityVC = UIActivityViewController(activityItems: [photo!], applicationActivities: nil)
+            if let popoverPresentationController = activityVC.popoverPresentationController {
+                popoverPresentationController.sourceView = self.view
+            }
+            self.present(activityVC, animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
