@@ -16,7 +16,6 @@ class QuotePhoto: Object {
 
 class QuoteBuilderViewController: UIViewController {
 
-    @IBOutlet weak var testImageView: UIImageView!
     @IBOutlet weak var quoteView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
@@ -57,28 +56,27 @@ class QuoteBuilderViewController: UIViewController {
     }
     
     @IBAction func saveQuote(_ sender: UIButton) {
-        if let quoteText = quoteLabel.text, let author = authorLabel.text, let image = imageView.image {
+        guard let quoteText = quoteLabel.text, let author = authorLabel.text else { return }
             
-            let quote = Quote()
-            quote.quoteText = quoteText
-            quote.quoteAuthor = author
-            
-            let photo = Photo()
-            photo.imageData = UIImageJPEGRepresentation(takeSnapShot(), 1)
-            
-            let quotePhoto = QuotePhoto()
-            quotePhoto.quote = quote
-            quotePhoto.photo = photo
-            
-            do {
-                let realm = try Realm()
-                try realm.write {
-                    realm.add(quotePhoto)
-                    navigationController?.popViewController(animated: true)
-                }
-            } catch {
-                print("error saving object in realm")
+        let quote = Quote()
+        quote.quoteText = quoteText
+        quote.quoteAuthor = author
+        
+        let photo = Photo()
+        photo.imageData = UIImageJPEGRepresentation(takeSnapShot(), 1)
+        
+        let quotePhoto = QuotePhoto()
+        quotePhoto.quote = quote
+        quotePhoto.photo = photo
+        
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(quotePhoto)
+                navigationController?.popViewController(animated: true)
             }
+        } catch {
+            print("error saving object in realm")
         }
     }
     

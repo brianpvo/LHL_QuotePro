@@ -30,10 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let quotePhotos = quotePhotos else {
-            return 0
-        }
-        return quotePhotos.count
+        return quotePhotos?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,23 +42,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         let quotePhoto = quotePhotos[indexPath.row]
         
-        cell.quoteLabel.text = quotePhoto.quote?.quoteText
-        cell.authorLabel.text = quotePhoto.quote?.quoteAuthor
+        cell.setup(quotePhoto: quotePhoto)
         
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let quotePhotos = quotePhotos {
-            let photo = UIImage(data: (quotePhotos[indexPath.row].photo?.imageData)!)
-            
-            let activityVC = UIActivityViewController(activityItems: [photo!], applicationActivities: nil)
-            if let popoverPresentationController = activityVC.popoverPresentationController {
-                popoverPresentationController.sourceView = self.view
-            }
-            self.present(activityVC, animated: true, completion: nil)
+        guard let quotePhotos = quotePhotos else { return }
+        
+        let photo = UIImage(data: (quotePhotos[indexPath.row].photo?.imageData)!)
+        
+        let activityVC = UIActivityViewController(activityItems: [photo!], applicationActivities: nil)
+        if let popoverPresentationController = activityVC.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
         }
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -79,14 +79,9 @@
                                     <action selector="saveQuote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Yc-0O-tIt"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j4U-Xp-VAd">
-                                <rect key="frame" x="244" y="491" width="98" height="128"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j4U-Xp-VAd" secondAttribute="bottom" constant="48" id="3xC-O2-ZIO"/>
-                            <constraint firstItem="j4U-Xp-VAd" firstAttribute="leading" secondItem="e0V-MA-0pH" secondAttribute="trailing" constant="40" id="68y-Wu-lOw"/>
                             <constraint firstItem="e0V-MA-0pH" firstAttribute="top" secondItem="81H-pw-bv2" secondAttribute="bottom" constant="57" id="69c-M8-Eb5"/>
                             <constraint firstItem="GfR-6R-lPU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C2w-E2-KXG"/>
                             <constraint firstItem="e0V-MA-0pH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ptb-GQ-bi6"/>
@@ -95,8 +90,6 @@
                             <constraint firstItem="81H-pw-bv2" firstAttribute="top" secondItem="Or7-cH-QCs" secondAttribute="bottom" constant="6" id="Uuv-Og-zAD"/>
                             <constraint firstItem="uVn-5R-uJI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WoW-pF-7D8"/>
                             <constraint firstItem="uVn-5R-uJI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mCl-BX-deQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j4U-Xp-VAd" secondAttribute="trailing" constant="33" id="tMG-vo-KeH"/>
-                            <constraint firstItem="j4U-Xp-VAd" firstAttribute="top" secondItem="uVn-5R-uJI" secondAttribute="bottom" constant="23" id="uKa-Rx-Nvh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -105,7 +98,6 @@
                         <outlet property="imageView" destination="Or7-cH-QCs" id="NUh-X5-KzM"/>
                         <outlet property="quoteLabel" destination="Ssg-iq-yDe" id="WGr-9x-iZY"/>
                         <outlet property="quoteView" destination="uVn-5R-uJI" id="sEm-Pt-K5m"/>
-                        <outlet property="testImageView" destination="j4U-Xp-VAd" id="e8k-iT-UwX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
